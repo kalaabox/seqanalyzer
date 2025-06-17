@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tools | SEQ Analyzer</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">SEQ Analyzer</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="project.html">Projects</a>
+    <a href="service.html">Services</a>
+    <a href="tool.html">Tools</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Bioinformatics Tools</h1>
+  <p>Free and Open-Source Tools to accelerate your research and education</p>
+</section>
+
+<section class="workflow">
+  <h2>Open-Source Tools</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>BLAST</h3>
+      <p>Basic Local Alignment Search Tool for sequence comparison against databases.</p>
+      
+    </div>
+    <div class="step">
+      <h3>Clustal Omega</h3>
+      <p>Multiple sequence alignment tool for DNA and protein sequences.</p>
+      
+    </div>
+    <div class="step">
+      <h3>EMBOSS</h3>
+      <p>European Molecular Biology Open Software Suite for sequence analysis.</p>
+      
+    </div>
+
+    
+  </div>
+</section>
+
+<section class="workflow">
+  <h2>Our Free Student Tools</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Transcription Tool</h3>
+      <button onclick="window.location.href='transcript.html'">Visit</button>
+    </div>
+    <div class="step">
+      <h3>DNA Analysis</h3>
+      <button onclick="window.location.href='complement.html'">Visit</button>
+    </div>
+    <div class="step">
+      <h3>DNA Replication </h3>
+      <button onclick="window.location.href='repication.html'">Visit</button>
+    </div>
+    <div class="step">
+      <h3>Genetics </h3>
+      <button onclick="window.location.href='mendilian.html'">Visit</button>
+    </div>
+    <div class="step">
+      <h3>rDNA Builder</h3>
+      <button onclick="window.location.href='rdna.html'">Visit</button>
+    </div>
+    
+  </div>
+</section>
+
+<div class="student-portal">
+  <h2> Bioinformatics Tools</h2>
+  <p style="max-width: 750px; margin: 20px auto; font-size: 18px; opacity: 0.85;">
+    The <strong>SEQ Analyzer Tools Section</strong> offers a growing collection of free, easy-to-use bioinformatics tools specially designed for students and researchers. Our tools simplify essential bioinformatics tasks like <strong>DNA transcription, DNA replication simulation, sequence analysis, amino acid molecular weight calculation, rDNA construction</strong>, and more. Developed by passionate bioinformatics students, these tools aim to support learning, academic projects, and basic data analysis — helping you grasp key concepts with practical, hands-on applications.
+  </p>
+  <p style="max-width: 750px; margin: 10px auto 30px; font-size: 17px; opacity: 0.8;">
+    All tools are open-source, browser-based, and crafted to deliver quick, reliable results for academic and research use. We're continually expanding this section to include more utilities and data-handling features for the modern bioinformatics classroom.
+  </p>
+</div>
+
+<footer>
+    <div class="footer-logo">SEQ Analyzer</div>
+    <p>Professional Bioinformatics Solutions & Student Resources.</p>
+    <p>Mobile: 8928554271 | Email: seqanalyzer@gmail.com</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/vishal-kumar-vind-8696b9263/">LinkedIn</a>
+      <a href="https://www.instagram.com/vishalvind111?utm_source=qr&igsh=MWc5aGJwaG5uZDllNA==">Instagram</a>
+    </div>
+    <div class="subscribe">
+      <input type="email" id="emailInput" placeholder="Enter your email">
+      <button onclick="subscribe()">Subscribe</button>
+    </div>
+
+    <div class="subscribe">
+      <p>&copy; 2025 SEQ Analyzer. All Rights Reserved.</p>
+      <div class="social-links">
+      <a href="privacy.html">Privacy Policy</a>
+    </div>
+
+    
+  </footer>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB111y481rAdUE-aAkFM9lAH8H7SycaH4I",
+      authDomain: "mylib-bce9e.firebaseapp.com",
+      projectId: "mylib-bce9e",
+      storageBucket: "mylib-bce9e.appspot.com",
+      messagingSenderId: "1091502164273",
+      appId: "1:1091502164273:web:036187e8a2e43a83a90810",
+      databaseURL: "https://mylib-bce9e-default-rtdb.firebaseio.com/"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    window.subscribe = function() {
+      const email = document.getElementById('emailInput').value;
+      if (email) {
+        push(ref(database, 'subscribers/'), { email });
+        alert('Subscribed Successfully!');
+        document.getElementById('emailInput').value = '';
+      } else {
+        alert('Please enter an email address.');
+      }
+    }
+  </script>
+
+  <script>
+    ScrollReveal().reveal('.hero, .workflow, .student-portal, footer', {
+      delay: 200,
+      distance: '50px',
+      duration: 800,
+      easing: 'ease-in-out',
+      origin: 'bottom'
+    });
+  </script>
+
+
+</body>
+</html>

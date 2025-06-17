@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEQ Analyzer | Home</title>
+  <link rel="stylesheet" href="home.css">
+  <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+  <div class="logo">SEQ Analyzer</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="project.html">Projects</a>
+    <a href="service.html">Services</a>
+    <a href="tool.html">Tools</a>
+  </nav>
+</header>
+
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Welcome to SEQ Analyzer</h1>
+    <p>Unlocking the potential of Bioinformatics for researchers, industries, and students with advanced, reliable, and insightful solutions.</p>
+    <div class="buttons">
+      <button onclick="location.href='request.html'">Request a Service</button>
+      <button onclick="location.href='about.html'">About</button>
+      <button onclick="location.href='project.html'">Sample Projects</button>
+    </div>
+  </section>
+
+  <!-- WORKFLOW SECTION -->
+  <section class="workflow">
+  <h2>How Our Bioinformatics Workflow Operates</h2>
+  <p style="max-width: 800px; margin: 0 auto 40px; font-size: 18px; opacity: 0.85;">
+    At BioAkaar, we follow a transparent, ethical, and precise bioinformatics project workflow ensuring research integrity, reliable outcomes, and data confidentiality at every stage.
+  </p>
+
+  <!-- Professional Vector Illustration -->
+  <div style="text-align: center; margin-bottom: 50px;">
+    <img src="undraw_data-points_uc3j.svg" alt="Workflow Illustration" style="max-width: 420px; width: 90%; border-radius: 20px;">
+  </div>
+
+  <div class="steps">
+    <div class="step">
+       
+      <strong> Initial Contact</strong>
+      
+      <p>Our team reaches out to understand your research needs and objectives.</p>
+    </div>
+    <div class="step">
+      <strong> Consultation Session</strong>
+      <p>A detailed discussion to finalize scope, datasets, analysis types, and expected outcomes.</p>
+    </div>
+    <div class="step">
+      <strong> Project Execution</strong>
+      <p>Experts perform high-standard bioinformatics analysis based on approved protocols.</p>
+    </div>
+    <div class="step">
+      <strong> Result Presentation</strong>
+      <p>Comprehensive results and preliminary reports are presented for your review and feedback.</p>
+    </div>
+    <div class="step">
+      <strong> Final Delivery</strong>
+      <p>After confirmation, final analysis reports, annotated data, and supporting files are securely delivered.</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- STUDENT PORTAL BUTTON -->
+ <div class="student-portal">
+  <h2>Welcome to the BioAkaar Student Portal</h2>
+  <p style="max-width: 750px; margin: 20px auto; font-size: 18px; opacity: 0.85;">
+    The <strong>BioAkaar Student Portal</strong> is a dedicated platform designed for <strong>Bioinformatics and Biotechnology students</strong>. Explore a curated collection of academic resources, project showcases, interactive bioinformatics tools, subject notes, and fun educational games — all crafted to make learning exciting and accessible.
+  </p>
+  <p style="max-width: 750px; margin: 10px auto 30px; font-size: 17px; opacity: 0.8;">
+    Stay updated with our latest research, participate in student-driven projects, and enhance your skills in an interactive and collaborative environment.
+  </p>
+  <button onclick="location.href='http://bioakaar.life/'">Visit Student Site</button>
+</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">SEQ Analyzer</div>
+    <p>Professional Bioinformatics Solutions & Student Resources.</p>
+    <p>Mobile: 8928554271 | Email: seqanalyzer@gmail.com</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/vishal-kumar-vind-8696b9263/">LinkedIn</a>
+      <a href="https://www.instagram.com/vishalvind111?utm_source=qr&igsh=MWc5aGJwaG5uZDllNA==">Instagram</a>
+    </div>
+    <div class="subscribe">
+      <input type="email" id="emailInput" placeholder="Enter your email">
+      <button onclick="subscribe()">Subscribe</button>
+    </div>
+
+    <div class="subscribe">
+      <p>&copy; 2025 SEQ Analyzer. All Rights Reserved.</p>
+      <div class="social-links">
+      <a href="#">Privacy Policy</a>
+      
+    </div>
+      
+    </div>
+
+    
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB111y481rAdUE-aAkFM9lAH8H7SycaH4I",
+      authDomain: "mylib-bce9e.firebaseapp.com",
+      projectId: "mylib-bce9e",
+      storageBucket: "mylib-bce9e.appspot.com",
+      messagingSenderId: "1091502164273",
+      appId: "1:1091502164273:web:036187e8a2e43a83a90810",
+      databaseURL: "https://mylib-bce9e-default-rtdb.firebaseio.com/"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    window.subscribe = function() {
+      const email = document.getElementById('emailInput').value;
+      if (email) {
+        push(ref(database, 'subscribers/'), { email });
+        alert('Subscribed Successfully!');
+        document.getElementById('emailInput').value = '';
+      } else {
+        alert('Please enter an email address.');
+      }
+    }
+  </script>
+
+  <script>
+    ScrollReveal().reveal('.hero, .workflow, .student-portal, footer', {
+      delay: 200,
+      distance: '50px',
+      duration: 800,
+      easing: 'ease-in-out',
+      origin: 'bottom'
+    });
+  </script>
+
+</body>
+</html>

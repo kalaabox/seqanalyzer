@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recombinant DNA Editor | BioAkaar</title>
+  <style>
+   body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h1 {
+  color: #14a26e;
+  margin-top: 30px;
+  text-align: center;
+}
+.container {
+  max-width: 700px;
+  padding: 30px;
+  margin: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  text-align: center;
+}
+label, textarea, input, button {
+  display: block;
+  margin: 15px auto;
+  width: 100%;
+  max-width: 600px;
+}
+textarea, input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button {
+  background: #14e956;
+  padding: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 5px;
+  width: 180px;
+}
+button:hover {
+  background: #00e0ff;
+}
+.result, .info {
+  margin-top: 25px;
+  padding: 20px;
+  background: #eef;
+  border-radius: 8px;
+  text-align: left;
+}
+footer {
+  background: #0a0a0a;
+  color: #ddd;
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+  margin-top: 570px;
+  width: 100%;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 26px; margin-top: 20px; }
+  .container { padding: 20px; margin: 15px; }
+  button { width: 100%; }
+  .actions { flex-direction: column; }
+}
+
+  </style>
+</head>
+<body>
+
+<h1>Recombinant DNA Editor</h1>
+
+<div class="container">
+  <label>Plasmid Sequence:</label>
+  <textarea id="plasmid" rows="3">ATGCGTACGTAGCTAGCTGACTAGC</textarea>
+
+  <label>Gene of Interest (for Insertion/Substitution):</label>
+  <textarea id="insert" rows="2">GGGCCCTTTAAA</textarea>
+
+  <label>Position (base index, starting at 0):</label>
+  <input type="number" id="position" value="5">
+
+  <div class="actions">
+    <button onclick="insertGene()">Insert</button>
+    <button onclick="deleteSegment()">Delete</button>
+    <button onclick="substituteGene()">Substitute</button>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <div class="info">
+    <h3>About This Tool</h3>
+    <p>This advanced rDNA editor allows you to perform virtual <strong>Insertion</strong>, <strong>Deletion</strong>, and <strong>Substitution (mutation)</strong> operations on a DNA plasmid sequence. It's ideal for simulating recombinant technology steps in academic, research, and industry projects.</p>
+  </div>
+</div>
+
+<footer>2025 Seq Analyzer. All Rights Reserved.</footer>
+
+<script>
+function insertGene() {
+  const plasmid = document.getElementById('plasmid').value;
+  const insert = document.getElementById('insert').value;
+  const pos = parseInt(document.getElementById('position').value);
+  if (pos < 0 || pos > plasmid.length) { alert("Invalid position."); return; }
+  const newSeq = plasmid.slice(0, pos) + insert + plasmid.slice(pos);
+  document.getElementById('result').innerHTML = "<strong>After Insertion:</strong><br>" + newSeq;
+}
+
+function deleteSegment() {
+  const plasmid = document.getElementById('plasmid').value;
+  const pos = parseInt(document.getElementById('position').value);
+  const delLength = document.getElementById('insert').value.length;
+  if (pos < 0 || (pos + delLength) > plasmid.length) { alert("Invalid position."); return; }
+  const newSeq = plasmid.slice(0, pos) + plasmid.slice(pos + delLength);
+  document.getElementById('result').innerHTML = "<strong>After Deletion:</strong><br>" + newSeq;
+}
+
+function substituteGene() {
+  const plasmid = document.getElementById('plasmid').value;
+  const insert = document.getElementById('insert').value;
+  const pos = parseInt(document.getElementById('position').value);
+  if (pos < 0 || (pos + insert.length) > plasmid.length) { alert("Invalid position."); return; }
+  const newSeq = plasmid.slice(0, pos) + insert + plasmid.slice(pos + insert.length);
+  document.getElementById('result').innerHTML = "<strong>After Substitution:</strong><br>" + newSeq;
+}
+</script>
+
+</body>
+</html>

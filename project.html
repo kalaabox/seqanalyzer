@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects | SeqAnalyzer</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">SEQ Analyzer</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="project.html">Projects</a>
+    <a href="service.html">Services</a>
+    <a href="tool.html">Tools</a>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <h1>Our Projects</h1>
+  <p>Explore the impactful bioinformatics projects we’ve delivered with precision and expertise.</p>
+</section>
+
+<section class="workflow">
+  <h2>Project Gallery</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Analysis Website Prototype</h3>
+      <p>A modern bioinformatics web platform UI and workflow concept.</p>
+       <button onclick="window.open('https://kalaabox.github.io/analysispage-/', '_blank')">View</button>
+    </div>
+    <div class="step">
+      <h3>Pharmagenomic Analysis</h3>
+      <p>Analyzing gene-drug interactions to predict personalized medicine outcomes.</p>
+      <button onclick="window.open('https://kalaabox.github.io/pharmagenomic/', '_blank')">View</button>
+    </div>
+    <div class="step">
+      <h3>Metagenomic Analysis</h3>
+      <p>Identifying microbial communities and functions from environmental DNA samples.</p>
+      <button onclick="window.open('https://kalaabox.github.io/metagenomic/', '_blank')">View</button>
+    </div>
+    <div class="step">
+      <h3>Data Analysis</h3>
+      <p>Advanced statistical and bioinformatics tools for biological data insights.</p>
+      <button onclick="window.open('https://kalaabox.github.io/dataanalysis/', '_blank')">View</button>
+    </div>
+    <div class="step">
+      <h3>Sequence Alignment</h3>
+      <p>Multiple sequence alignment of DNA/protein sequences using Clustal Omega.</p>
+      <button onclick="window.open('https://kalaabox.github.io/alignment/', '_blank')">View</button>
+    </div>
+    
+  </div>
+</section>
+
+
+
+<div class="student-portal">
+  <h2>Our Work: Innovative Bioinformatics Projects</h2>
+  <p style="max-width: 750px; margin: 20px auto; font-size: 18px; opacity: 0.85;">
+    At <strong>SEQ Analyzer, we proudly present a collection of sample projects.</strong>  
+  </p>
+  <p style="max-width: 750px; margin: 10px auto 30px; font-size: 17px; opacity: 0.8;">
+   Each project is carefully crafted to meet academic and research standards. We continuously work on innovative ideas and solutions, striving to exceed your expectations and contribute meaningfully to the scientific community.</P>
+  
+</div>
+<footer>
+    <div class="footer-logo">SEQ Analyzer</div>
+    <p>Professional Bioinformatics Solutions & Student Resources.</p>
+    <p>Mobile: 8928554271 | Email: seqanalyzer@gmail.com</p>
+    <div class="social-links">
+       <a href="https://www.linkedin.com/in/vishal-kumar-vind-8696b9263/">LinkedIn</a>
+      <a href="https://www.instagram.com/vishalvind111?utm_source=qr&igsh=MWc5aGJwaG5uZDllNA==">Instagram</a>
+    </div>
+    <div class="subscribe">
+      <input type="email" id="emailInput" placeholder="Enter your email">
+      <button onclick="subscribe()">Subscribe</button>
+    </div>
+
+    <div class="subscribe">
+      <p>&copy; 2025 SEQ Analyzer. All Rights Reserved.</p>
+      <div class="social-links">
+      <a href="privacy.html">Privacy Policy</a>
+      
+    </div>
+
+    
+  </footer>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB111y481rAdUE-aAkFM9lAH8H7SycaH4I",
+      authDomain: "mylib-bce9e.firebaseapp.com",
+      projectId: "mylib-bce9e",
+      storageBucket: "mylib-bce9e.appspot.com",
+      messagingSenderId: "1091502164273",
+      appId: "1:1091502164273:web:036187e8a2e43a83a90810",
+      databaseURL: "https://mylib-bce9e-default-rtdb.firebaseio.com/"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    window.subscribe = function() {
+      const email = document.getElementById('emailInput').value;
+      if (email) {
+        push(ref(database, 'subscribers/'), { email });
+        alert('Subscribed Successfully!');
+        document.getElementById('emailInput').value = '';
+      } else {
+        alert('Please enter an email address.');
+      }
+    }
+  </script>
+
+  <script>
+    ScrollReveal().reveal('.hero, .workflow, .student-portal, footer', {
+      delay: 200,
+      distance: '50px',
+      duration: 800,
+      easing: 'ease-in-out',
+      origin: 'bottom'
+    });
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Genetics Phenotypic Ratio Calculator | BioAkaar</title>
+  <style>
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  color: #14a26e;
+  text-align: center;
+  margin-top: 30px;
+}
+label, input, select, button {
+  display: block;
+  margin: 15px auto;
+  max-width: 400px;
+  width: 100%;
+}
+input, select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button {
+  background: #14e956;
+  padding: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+}
+button:hover {
+  background: #00e0ff;
+}
+.result, .table-box {
+  margin-top: 25px;
+  padding: 20px;
+  background: #eef;
+  border-radius: 8px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 15px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+th {
+  background: #14e956;
+  color: #0f0f0f;
+}
+footer {
+  background: #0a0a0a;
+  color: #ddd;
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+  margin-top: 620px;
+  width: 100%;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 26px; margin-top: 20px; }
+  label, input, select, button {
+    max-width: 90%;
+  }
+  table, th, td {
+    font-size: 14px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<h1>Mendelian Genetics Phenotypic Ratio Calculator</h1>
+
+<label>Enter Parent Genotypes (Example: Aa x Aa or AaBb x AaBb)</label>
+<input type="text" id="genotype" value="Aa x Aa">
+
+<label>Select Type of Cross:</label>
+<select id="crossType">
+  <option value="mono">Monohybrid Cross</option>
+  <option value="di">Dihybrid Cross</option>
+</select>
+
+<button onclick="calculateRatio()">Calculate Results</button>
+
+<div class="result" id="result"></div>
+<div class="table-box" id="table-box"></div>
+
+<div class="result">
+  <h3>About This Tool</h3>
+  <p>
+    The <strong>Mendelian Genetics Phenotypic Ratio Calculator</strong> is an educational and research-friendly utility designed to predict phenotypic outcomes for both Monohybrid and Dihybrid crosses based on Mendelian inheritance laws.
+    It provides expected phenotypic ratios and identifies the underlying genetic law applied in the cross, helping students and researchers visualize genotype-to-phenotype relationships.
+  </p>
+  <p>
+    This tool is ideal for teaching Mendelian principles, conducting quick classroom or lab simulations, and for industry-level training modules in genetics, plant breeding, biotechnology, and molecular biology fields.
+  </p>
+</div>
+
+<footer>© 2025 Seq Analyzer. All Rights Reserved.</footer>
+
+<script>
+function calculateRatio() {
+  const type = document.getElementById('crossType').value;
+  const genotype = document.getElementById('genotype').value.trim();
+  let ratio, law, tableContent;
+
+  if (type === "mono") {
+    ratio = "3:1 (Dominant:Recessive)";
+    law = "Law of Segregation";
+    tableContent = `
+      <table>
+        <tr><th>Phenotype</th><th>Frequency</th></tr>
+        <tr><td>Dominant</td><td>3</td></tr>
+        <tr><td>Recessive</td><td>1</td></tr>
+      </table>`;
+  }
+  else if (type === "di") {
+    ratio = "9:3:3:1 (Phenotypic Ratio)";
+    law = "Law of Independent Assortment";
+    tableContent = `
+      <table>
+        <tr><th>Phenotype</th><th>Frequency</th></tr>
+        <tr><td>Both Dominant Traits</td><td>9</td></tr>
+        <tr><td>Trait A Dominant, Trait B Recessive</td><td>3</td></tr>
+        <tr><td>Trait A Recessive, Trait B Dominant</td><td>3</td></tr>
+        <tr><td>Both Recessive Traits</td><td>1</td></tr>
+      </table>`;
+  }
+
+  document.getElementById('result').innerHTML = `
+    <h3>Result Summary</h3>
+    <p><strong>Parent Genotypes:</strong> ${genotype}</p>
+    <p><strong>Expected Phenotypic Ratio:</strong> ${ratio}</p>
+    <p><strong>Mendelian Law Applied:</strong> ${law}</p>
+  `;
+
+  document.getElementById('table-box').innerHTML = tableContent;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About | SeqAnalyzer</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">SEQ Analyzer</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="project.html">Projects</a>
+    <a href="service.html">Services</a>
+    <a href="tool.html">Tools</a>
+  </nav>
+</header>
+
+
+<section class="hero">
+  <h1>About Us</h1>
+  <p>Trusted, innovative, and student-friendly bioinformatics solutions — tailored for students, researchers, and biotech professionals.</p>
+</section>
+
+<section class="workflow">
+  <h2>Why Choose SeqAnalyzer?</h2>
+  <div class="steps">
+    <div class="step">
+  <h3>Growing Student Expertise</h3>
+  <p>We’re final-year bioinformatics students actively working on real projects, delivering reliable analyses with academic precision and industry-relevant skills.</p>
+</div>
+
+    <div class="step">
+      <h3>Student Support</h3>
+      <p>We actively assist students with projects, notes, and bioinformatics games through our dedicated student portal.</p>
+    </div>
+    <div class="step">
+      <h3>Secure & Ethical</h3>
+      <p>Your data is safe with us. We follow strict confidentiality and data protection standards for every project.</p>
+    </div>
+  </div>
+</section>
+
+<section class="founder-profile-side">
+  <h2>Meet Our Founder</h2>
+  <div class="founder-container">
+    <div class="founder-image">
+      <img src="WhatsApp Image 2025-06-11 at 23.45.08_ba56c62e.jpg" alt="Vishal Kumar Vind">
+    </div>
+    <div class="founder-details">
+      <h3>Vishal Kumar Vind</h3>
+      <p class="title">Founder & Lead Bioinformatician</p>
+      <p class="bio">
+        Student of Bioinformatics, completed 10th & 12th from Kendriya Vidyalaya (Govt) and pursued Pharmacy. A government-registered Pharmacist, passionate about bioinformatics, continuously working on new projects and mastering emerging technologies.
+      </p>
+
+      <div class="contact">
+        <p>📞 <a href="tel:8928554271">8928554271</a></p>
+        <p>📧 <a href="mailto:seqanalyzer@gmail.com">seqanalyzer@gmail.com</a></p>
+        <p>📸 <a href="https://www.instagram.com/vishalvind111?utm_source=qr&igsh=MWc5aGJwaG5uZDllNA==" target="_blank">@vishalvind111</a></p>
+        <p>🔗 <a href="https://www.linkedin.com/in/vishal-kumar-vind-8696b9263/" target="_blank">LinkedIn Profile</a></p>
+         <p>💻 <a href="https://github.com/kalaabox" target="_blank">GitHub: kalaabox</a></p>
+      </div>
+
+      <h4>Skills</h4>
+      <ul>
+        <li>Pharmacy Skills</li>
+        <li>Technical Python</li>
+        <li>Data Analysis</li>
+        <li>R Programming (Basics)</li>
+        <li>Bioinformatics: Metagenomics, NGS, Sequence Alignment, Data Analysis</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="workflow">
+  <h2>Contact Us</h2>
+  <div class="steps">
+    <div class="step">
+      <h3>Phone</h3>
+      <p>+91 8928554271</p>
+    </div>
+    <div class="step">
+      <h3>Email</h3>
+      <p>seqanalyzer@gmail.com</p>
+    </div>
+    <div class="step">
+      <h3>Connect</h3>
+      <p>LinkedIn | Instagram</p>
+    </div>
+  </div>
+</section>
+
+<div class="student-portal">
+  <h2>Welcome to the BioAkaar Student Portal</h2>
+  <p style="max-width: 750px; margin: 20px auto; font-size: 18px; opacity: 0.85;">
+    The <strong>BioAkaar Student Portal</strong> is a dedicated platform designed for <strong>Bioinformatics and Biotechnology students</strong>. Explore a curated collection of academic resources, project showcases, interactive bioinformatics tools, subject notes, and fun educational games — all crafted to make learning exciting and accessible.
+  </p>
+  <p style="max-width: 750px; margin: 10px auto 30px; font-size: 17px; opacity: 0.8;">
+    Stay updated with our latest research, participate in student-driven projects, and enhance your skills in an interactive and collaborative environment.
+  </p>
+  <button onclick="location.href='http://bioakaar.life/'">Visit Student Site</button>
+</div>
+
+
+<footer>
+    <div class="footer-logo">SEQ Analyzer</div>
+    <p>Professional Bioinformatics Solutions & Student Resources.</p>
+    <p>Mobile: 8928554271 | Email: seqanalyzer@gmail.com</p>
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/vishal-kumar-vind-8696b9263/">LinkedIn</a>
+      <a href="https://www.instagram.com/vishalvind111?utm_source=qr&igsh=MWc5aGJwaG5uZDllNA==">Instagram</a>
+    </div>
+    <div class="subscribe">
+      <input type="email" id="emailInput" placeholder="Enter your email">
+      <button onclick="subscribe()">Subscribe</button>
+    </div>
+
+    <div class="subscribe">
+      <p>&copy; 2025 SEQ Analyzer. All Rights Reserved.</p>
+      <div class="social-links">
+      <a href="privacy.html">Privacy Policy</a>
+      
+    </div>
+
+    
+  </footer>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/11.7.3/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyB111y481rAdUE-aAkFM9lAH8H7SycaH4I",
+      authDomain: "mylib-bce9e.firebaseapp.com",
+      projectId: "mylib-bce9e",
+      storageBucket: "mylib-bce9e.appspot.com",
+      messagingSenderId: "1091502164273",
+      appId: "1:1091502164273:web:036187e8a2e43a83a90810",
+      databaseURL: "https://mylib-bce9e-default-rtdb.firebaseio.com/"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    window.subscribe = function() {
+      const email = document.getElementById('emailInput').value;
+      if (email) {
+        push(ref(database, 'subscribers/'), { email });
+        alert('Subscribed Successfully!');
+        document.getElementById('emailInput').value = '';
+      } else {
+        alert('Please enter an email address.');
+      }
+    }
+  </script>
+
+  <script>
+    ScrollReveal().reveal('.hero, .workflow, .student-portal, footer', {
+      delay: 200,
+      distance: '50px',
+      duration: 800,
+      easing: 'ease-in-out',
+      origin: 'bottom'
+    });
+  </script>
+
+</body>
+</html>
